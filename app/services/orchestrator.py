@@ -14,8 +14,12 @@ def format_docs_with_db_and_s3(docs):
     if not docs:
         return "No relevant context found."
         
-    # Get IDs from Qdrant metadata
-    chunk_ids = [doc.metadata.get("chunk_id") for doc in docs if doc.metadata.get("chunk_id")]
+    # Get IDs from Qdrant metadata. LangChain Qdrant store puts the point ID in '_id'
+    chunk_ids = [
+        doc.metadata.get("chunk_id") or doc.metadata.get("_id") 
+        for doc in docs 
+        if doc.metadata.get("chunk_id") or doc.metadata.get("_id")
+    ]
     
     # Enrich with DB content
     db_chunks = fetch_chunk_content(chunk_ids)
