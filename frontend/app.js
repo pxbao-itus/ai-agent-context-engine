@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    function addLog(logObj) {
-        // Remove empty state
+    function addLog(logObj, container) {
+        // Remove empty state if still there
         const empty = logList.querySelector('.empty-state');
         if (empty) empty.remove();
 
@@ -45,11 +45,37 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         if (logObj.detail) {
-            logDiv.onclick = () => showModal(logObj.step, logObj.detail);
+            logDiv.onclick = (e) => {
+                e.stopPropagation();
+                showModal(logObj.step, logObj.detail);
+            }
         }
 
-        logList.appendChild(logDiv);
+        container.appendChild(logDiv);
         logList.scrollTop = logList.scrollHeight;
+    }
+
+    function createQueryGroup(queryText) {
+        const groupDiv = document.createElement('div');
+        groupDiv.className = 'query-log-group expanded';
+
+        const shortQuery = queryText.length > 30 ? queryText.substring(0, 27) + "..." : queryText;
+
+        groupDiv.innerHTML = `
+            <div class="query-group-header">
+                <span>🔍 ${shortQuery}</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="query-group-body"></div>
+        `;
+
+        groupDiv.querySelector('.query-group-header').onclick = () => {
+            groupDiv.classList.toggle('expanded');
+        };
+
+        logList.appendChild(groupDiv);
+        logList.scrollTop = logList.scrollHeight;
+        return groupDiv.querySelector('.query-group-body');
     }
 
     function showModal(step, content) {
@@ -76,6 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         addMessage(query, true);
 
+        // Create the group for this query's logs
+        const groupContainer = createQueryGroup(query);
+
         try {
             const response = await fetch('/api/v1/ask', {
                 method: 'POST',
@@ -86,9 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             if (response.ok) {
-                // Display all logs returned from the engine
+                // Display all logs returned from the engine in the specific group
                 data.logs.forEach((log, index) => {
-                    setTimeout(() => addLog(log), index * 400);
+                    setTimeout(() => addLog(log, groupContainer), index * 400);
                 });
 
                 setTimeout(() => {
