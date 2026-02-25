@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+langchain
+langchain-anthropic
+langchain-qdrant
+langchain-postgres
+psycopg2-binary
+sqlalchemy
+boto3
+python-dotenv
+pydantic-settings
+langchain-openai
+langchain-google-genai
+
+
