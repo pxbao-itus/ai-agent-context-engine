@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     
     # LLM Configuration
     LLM_PROVIDER: str = "openai"  # options: openai, anthropic, google
+    LOG_STORAGE_PROVIDER: str = "postgres"  # options: postgres
     
     # Anthropic
     ANTHROPIC_API_KEY: str = ""

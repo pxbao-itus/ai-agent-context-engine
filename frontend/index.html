@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context Engine | premium RAG Orchestrator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+    <div id="app">
+        <!-- Background decorative elements -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <header>
+            <div class="logo">
+                <span class="icon">🧠</span>
+                <h1>Context<span>Engine</span></h1>
+            </div>
+            <div class="status">
+                <span class="dot pulse"></span> Online
+            </div>
+        </header>
+
+        <main>
+            <section class="chat-container">
+                <div id="chat-messages" class="chat-scroll">
+                    <!-- Messages will be injected here -->
+                    <div class="message system-msg">
+                        <div class="msg-content">
+                            👋 Welcome to the Context Engine. Ask me anything about your ingested data!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <form id="query-form">
+                        <input type="text" id="user-input" placeholder="Type your query about the database..."
+                            autocomplete="off">
+                        <button type="submit" id="send-btn">
+                            <span class="btn-text">Ask Engine</span>
+                            <span class="btn-icon">🚀</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <aside class="side-panel">
+                <div class="panel-header">
+                    <h2>Engine Activity</h2>
+                    <p>Live process monitoring</p>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="logs">Activity Logs</button>
+                </div>
+
+                <div class="tab-content" id="logs-panel">
+                    <div id="log-list" class="log-scroll">
+                        <div class="empty-state">No activity yet. Send a query to see the engine in action.</div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            Built with ❤️ for advanced RAG orchestrator demonstration
+        </footer>
+
+        <!-- Detail Modal -->
+        <div id="modal-overlay" class="modal-overlay hidden">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 id="modal-title">[Step Name] Detail</h3>
+                    <button id="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <pre id="modal-content"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
