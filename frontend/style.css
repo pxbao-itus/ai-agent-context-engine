@@ -138,7 +138,8 @@ header {
 main {
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 3fr 1fr;
+    /* Better balance: 75% chat, 25% logs */
     padding: 20px;
     gap: 20px;
     overflow: hidden;
@@ -275,6 +276,7 @@ main {
     display: flex;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
