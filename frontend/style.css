@@ -138,7 +138,7 @@ header {
 main {
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: 1fr 300px;
     padding: 20px;
     gap: 20px;
     overflow: hidden;
@@ -301,7 +301,7 @@ main {
 }
 
 .panel-header {
-    padding: 24px;
+    padding: 16px 20px;
     border-bottom: 1px solid var(--glass-border);
     flex-shrink: 0;
 }
@@ -317,7 +317,7 @@ main {
 }
 
 .tabs {
-    padding: 10px 24px;
+    padding: 8px 20px;
     display: flex;
     gap: 10px;
     flex-shrink: 0;
@@ -438,6 +438,11 @@ main {
 
 .log-entry.postgres {
     border-color: var(--success);
+}
+
+.log-entry.entities {
+    border-color: #cd20ff;
+    /* Purple for Knowledge Graph / Entities */
 }
 
 .log-entry.llm {
