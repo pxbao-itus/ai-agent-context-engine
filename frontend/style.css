@@ -23,6 +23,8 @@ body {
     background-color: var(--bg-color);
     color: var(--text);
     font-family: var(--font-main);
+    font-size: 14px;
+    /* Reduced base font size */
     overflow: hidden;
     height: 100vh;
 }
@@ -81,7 +83,8 @@ header {
 
 .logo h1 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    /* Reduced from 1.5rem */
     font-weight: 800;
     background: linear-gradient(to right, #fff, var(--text-dim));
     -webkit-background-clip: text;
@@ -97,10 +100,11 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    /* Reduced from 0.8rem */
     color: var(--text-dim);
     background: rgba(255, 255, 255, 0.05);
-    padding: 6px 12px;
+    padding: 4px 10px;
     border-radius: 20px;
     border: 1px solid var(--glass-border);
 }
@@ -203,10 +207,11 @@ main {
 }
 
 .msg-content {
-    padding: 14px 20px;
+    padding: 12px 18px;
     border-radius: 18px;
-    line-height: 1.6;
-    font-size: 0.95rem;
+    line-height: 1.5;
+    font-size: 0.85rem;
+    /* Reduced from 0.95rem */
 }
 
 .user-msg .msg-content {
@@ -251,10 +256,11 @@ main {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
-    padding: 16px 24px;
+    padding: 12px 20px;
     color: white;
     font-family: var(--font-main);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    /* Reduced from 0.95rem */
     transition: all 0.3s ease;
 }
 
@@ -309,12 +315,14 @@ main {
 }
 
 .panel-header h2 {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
+    font-size: 1rem;
+    /* Reduced from 1.1rem */
+    margin-bottom: 2px;
 }
 
 .panel-header p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    /* Reduced from 0.75rem */
     color: var(--text-dim);
 }
 
@@ -409,8 +417,9 @@ main {
 }
 
 .log-entry {
-    font-size: 0.75rem;
-    padding: 10px;
+    font-size: 0.7rem;
+    /* Reduced from 0.75rem */
+    padding: 8px 12px;
     border-radius: 8px;
     background: rgba(0, 0, 0, 0.2);
     border-left: 3px solid var(--primary);
@@ -518,7 +527,8 @@ main {
 .modal-header h3 {
     font-family: var(--font-heading);
     color: var(--primary-light);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    /* Reduced from 1.2rem */
 }
 
 #close-modal {
@@ -545,13 +555,14 @@ main {
     white-space: pre-wrap;
     word-break: break-all;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    /* Reduced from 0.85rem */
     color: var(--text);
     background: rgba(0, 0, 0, 0.4);
-    padding: 20px;
+    padding: 15px;
     border-radius: 12px;
     border: 1px solid var(--glass-border);
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 footer {
